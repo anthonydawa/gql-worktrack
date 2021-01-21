@@ -13,6 +13,14 @@ type Query {
     todo(id: ID @eq): Todo @find
 }
 
+type Mutation {
+
+  createTask(user_id:String,task_id:String!,project_type:String,notes:String,accuracy:Int,payment:String,time_spent:String,deadline:String): Todo @create
+  updateTask(id: ID, task_id:String!,project_type:String,notes:String,accuracy:Int,payment:String,time_spent:String,deadline:String): Todo @update
+  deleteTask(id: ID!): Todo @delete
+
+}
+
 type User {
     id: ID!
     name: String!
@@ -34,3 +42,5 @@ type Todo {
     created_at: DateTime!
     updated_at: DateTime!
 }
+
+
